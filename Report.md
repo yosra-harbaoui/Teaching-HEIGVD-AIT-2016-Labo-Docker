@@ -102,7 +102,7 @@
 
 **Deliverables**:
 ###### 1. Take a screenshot of the stats page of HAProxy at <http://192.168.42.42:1936>. You should see your backend nodes.  
-![](assets/img/stats page of HAProxy 1.PNG)  
+![](assets/img/stats-page-of-HAProxy-1.PNG)  
 
 ###### 2. Give the URL of your repository URL in the lab report.
 Our repository is [here](https://github.com/yosra-harbaoui/Teaching-HEIGVD-AIT-2016-Labo-Docker)
@@ -110,7 +110,7 @@ Our repository is [here](https://github.com/yosra-harbaoui/Teaching-HEIGVD-AIT-2
 #### Task 1: Add a process supervisor to run several processes
 **Deliverables**:
 ###### 1. Screenshot of the stats page of HAProxy :  
-![](assets/img/stats page of HAProxy 2.PNG)   
+![](assets/img/stats-page-of-HAProxy-2.PNG)   
 
 ###### 2. Describe your difficulties for this task:  
 There is only a single process running inside a container. That's why, the container will run only when the process is running and when the process stops, the container automatically stops. To solve this problem, we need to run several processes at the same time in a container by using a **process supervisor** : we installed an init system called ``s6`` in the HAProxy and the and Web application Docker files, and we configure it as our main process replacing the current one.
@@ -224,15 +224,15 @@ You can find the output of ``docker ps`` here:
 ###### 1. Take a screenshots of the HAProxy stat page showing more than 2 web applications running. Additional screenshots are welcome to see a sequence of experimentations like shutting down a node and starting more nodes.
 
 After starting 4 nodes, we have the follwing result:  
-![](assets/img/stats page of HAProxy 4 apps.PNG)  
+![](assets/img/stats-page-of-HAProx-4-apps.PNG)  
 
 You can find the ``docker ps`` file here:  
 [docker ps after strating 4 apps](logs\task6\docker_ps_4_apps.logs)
 
 After stopping s1 node, we can see the following result:  
-![](assets/img/stats page of HAProxy s1 stopped_a.PNG)
+![](assets/img/stats-page-of-HAProxy-s1-stopped-a.PNG)
 
-![](assets/img/stats page of HAProxy s1 stopped_b.PNG)  
+![](assets/img/stats-page-of-HAProxy-s1-stopped-b.PNG)  
 
 You can find the ``docker ps`` file here:  
 [docker ps after strating 4 apps](logs\task6\docker_ps_s1_stopped.logs)  
