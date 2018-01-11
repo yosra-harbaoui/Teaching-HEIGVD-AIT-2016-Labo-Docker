@@ -121,9 +121,9 @@ In order to use this solution we created a folder ``services`` in HAProxy and We
 **Deliverables**:  
 ###### 1. Provide the docker log output for each of the containers: ``ha``, ``s1`` and ``s2``.  
 You can find these logs here:  
-[ha](logs\task2\ha.logs)  
-[s1](logs\task2\s1.logs)  
-[s2](logs\task2\s2.logs)  
+[ha](logs/task2/ha.logs)  
+[s1](logs/task2/s1.logs)  
+[s2](logs/task2/s2.logs)  
 
 ###### 2. Give the answer to the question about the existing problem with the current solution.  
 
@@ -141,13 +141,13 @@ In fact, a node can start a new cluster or join an existing one. If he starts a 
 **Deliverables**:
 ###### 1.Provide the docker log output for each of the containers: ``ha``, ``s1`` and ``s2``.
 You can find these logs here:  
-[ha running only](logs\task3\ha.logs)  
-[s1 : one of the backend](logs\task2\s1.logs)  
-[ha after running s1](logs\task3\ha_b.logs)  
-[s2](logs\task2\s2.logs)
+[ha running only](logs/task3/ha.logs)  
+[s1 : one of the backend](logs/task2/s1.logs)  
+[ha after running s1](logs/task3/ha_b.logs)  
+[s2](logs/task2/s2.logs)
 ###### 2. Provide the logs from the``ha`` container gathered directly from the ``/var/log/serf.log`` file present in the container.
 You can find these logs here:  
-[/var/log/serf.log](logs\task3\in_ha.logs)  
+[/var/log/serf.log](logs/task3/in_ha.logs)  
 ### Task 4: Use a template engine to easily generate configuration files
 **Deliverables**:
 ###### 1. You probably noticed when we added `xz-utils`, we have to rebuild the whole image which took some time. What can we do to mitigate that? Take a look at the Docker documentation on [image layers](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/#images-and-layers). Tell us about the pros and cons to merge as much as possible of the command. In other words, compare:
@@ -176,16 +176,16 @@ Docker decides that a particular layer needs to be rebuilt when we do a ``docker
 
 ###### 3. Provide the ``/tmp/haproxy.cfg`` file generated in the ``ha`` container after each step. Place the output into the logs folder like you already did for the Docker`` logs`` in the previous tasks. Three files are expected.
 You can find these logs here:  
-[ha](logs\task4\in_ha_a.logs)  
-[ha after running s1](logs\task4\in_ha_b.logs)  
-[ha after running s2](logs\task4\in_ha_c.logs)
+[ha](logs/task4/in_ha_a.logs)  
+[ha after running s1](logs/task4/in_ha_b.logs)  
+[ha after running s2](logs/task4/in_ha_c.logs)
 
 **In addition, provide a log file containing the output of the ``docker ps`` console and another file (per container) with ``docker inspect <container>``. Four files are expected.**
 You can find these logs here:  
-[docker ps](logs\task4\dockerPs.logs)  
-[docker inspect ha](logs\task4\ha_Inspect.logs)  
-[docker inspect s1](logs\task4\s1_Inspect.logs)  
-[docker inspect s2](logs\task4\s2_Inspect.logs)
+[docker ps](logs/task4/dockerPs.logs)  
+[docker inspect ha](logs/task4/ha_Inspect.logs)  
+[docker inspect s1](logs/task4/s1_Inspect.logs)  
+[docker inspect s2](logs/task4/s2_Inspect.logs)
 
 ###### 4. Based on the three output files you have collected, what can you say about the way we generate it? What is the problem if any?
 The configuration file ``/tmp/haproxy.cfg`` is a temporary file that contain only the last container has joined the cluster. It does not append the information, it ereases information of the previous node to replace it with those of the last one.
@@ -195,29 +195,29 @@ The problem is that we cannot keep information about all nodes of the cluster in
 **Deliverables**:
 ###### 1. Provide the file ``/usr/local/etc/haproxy/haproxy.cfg`` generated in the ha container after each step. Three files are expected.
 You can find these logs here:  
-[ha](logs\task5\in_ha_a.logs)  
-[ha after running s1](logs\task5\in_ha_a.logs)  
-[ha after running s2](logs\task5\in_ha_a.logs)  
+[ha](logs/task5/in_ha_a.logs)  
+[ha after running s1](logs/task5/in_ha_a.logs)  
+[ha after running s2](logs/task5/in_ha_a.logs)  
 
 **In addition, provide a log file containing the output of the ``docker ps`` console and another file (per container) with ``docker inspect <container>``. Four files are expected.**  
 You can find these logs here:  
-[docker ps](logs\task5\docker_ps.logs)  
-[docker inspect ha](logs\task5\docker_inspect_ha.logs)  
-[docker inspect s1](logs\task5\docker_inspect_s1.logs)  
-[docker inspect s2](logs\task5\docker_inspect_s2.logs)  
+[docker ps](logs/task5/docker_ps.logs)  
+[docker inspect ha](logs/task5/docker_inspect_ha.logs)  
+[docker inspect s1](logs/task5/docker_inspect_s1.logs)  
+[docker inspect s2](logs/task5/docker_inspect_s2.logs)  
 
 ###### 2. Provide the list of files from the ``/nodes`` folder inside the ``ha`` container. One file expected with the command output.
 You can find the list here :  
-[list of nodes](logs\task5\list_of_nodes.logs)
+[list of nodes](logs/task5/list_of_nodes.logs)
 
 ###### 3. Provide the configuration file after you stopped one container and the list of nodes present in the ``/nodes`` folder. One file expected with the command output. Two files are expected.
 You can find the logs here:  
-[ha after stooping s1](logs\task5\in_ha_after_s1_stopped.logs)  
-[list of nodes after stopping s1](logs\task5\list_of_nodes_after_s1_stopped.logs)  
+[ha after stooping s1](logs/task5/in_ha_after_s1_stopped.logs)  
+[list of nodes after stopping s1](logs/task5/list_of_nodes_after_s1_stopped.logs)  
 
 **In addition, provide a log file containing the output of the ``docker ps``console. One file expected.**  
 You can find the output of ``docker ps`` here:   
-[docker ps](logs\task5\docker_ps_after_s1_stopped.logs)  
+[docker ps](logs/task5/docker_ps_after_s1_stopped.logs)  
 
 ### Task 6 :  Make the load balancer automatically reload the new configuration
 **Deliverables**:
@@ -227,7 +227,7 @@ After starting 4 nodes, we have the follwing result:
 ![](assets/img/stats-page-of-HAProx-4-apps.PNG)  
 
 You can find the ``docker ps`` file here:  
-[docker ps after strating 4 apps](logs\task6\docker_ps_4_apps.logs)
+[docker ps after strating 4 apps](logs/task6/docker_ps_4_apps.logs)
 
 After stopping s1 node, we can see the following result:  
 ![](assets/img/stats-page-of-HAProxy-s1-stopped-a.PNG)
@@ -235,7 +235,7 @@ After stopping s1 node, we can see the following result:
 ![](assets/img/stats-page-of-HAProxy-s1-stopped-b.PNG)  
 
 You can find the ``docker ps`` file here:  
-[docker ps after strating 4 apps](logs\task6\docker_ps_s1_stopped.logs)  
+[docker ps after strating 4 apps](logs/task6/docker_ps_s1_stopped.logs)  
 
 ###### 2. Give your own feelings about the final solution. Propose improvements or ways to do the things differently. If any, provide references to your readings for the improvements.
 
