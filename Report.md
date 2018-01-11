@@ -235,7 +235,7 @@ After stopping s1 node, we can see the following result:
 ![](assets/img/stats-page-of-HAProxy-s1-stopped-b.PNG)  
 
 You can find the ``docker ps`` file here:  
-[docker ps after strating 4 apps](logs/task6/docker_ps_s1_stopped.logs)  
+[docker ps after stopping s1](logs/task6/docker_ps_s1_stopped.logs)  
 
 ###### 2. Give your own feelings about the final solution. Propose improvements or ways to do the things differently. If any, provide references to your readings for the improvements.
 
